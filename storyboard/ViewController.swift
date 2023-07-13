@@ -9,8 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
     var strOperator = ""
-    var cn = ""
-    var pn = ""
+    
+    func afterOperatorClick() {
+        if strOperator == "" {
+            labelPreNumber.text = labelCurrentNumber.text ?? ""
+            labelCurrentNumber.text = ""
+        }
+    }
+    
     @IBAction func percentClick(_ sender: UIButton) {
         if let nNumber = labelCurrentNumber.text {
             let nFloat = (Float(nNumber) ?? 0) * 0.01
@@ -39,91 +45,55 @@ class ViewController: UIViewController {
     }
     
     @IBAction func divisionClick(_ sender: UIButton) {
-        if strOperator == "" {
-            labelPreNumber.text = labelCurrentNumber.text ?? ""
-            labelCurrentNumber.text = ""
-        } 
+        afterOperatorClick()
         strOperator = "/"
     }
     
     @IBAction func multipleClick(_ sender: UIButton) {
-        if strOperator == ""{
-            labelPreNumber.text = labelCurrentNumber.text ?? ""
-            labelCurrentNumber.text = ""
-        }
+        afterOperatorClick()
         strOperator = "*"
     }
     
     @IBAction func minusClick(_ sender: UIButton) {
-        if strOperator == "" {
-            labelPreNumber.text = labelCurrentNumber.text ?? ""
-            labelCurrentNumber.text = ""
-        }
+        afterOperatorClick()
         strOperator = "-"
     }
     
     @IBAction func plusClick(_ sender: UIButton) {
-        if strOperator == "" {
-            labelPreNumber.text = labelCurrentNumber.text ?? ""
-            labelCurrentNumber.text = ""
-        }
+        afterOperatorClick()
         strOperator = "+"
+    }
+    
+    fileprivate func CaculatorOperate() {
+        if let ntext = labelCurrentNumber.text {
+            let cn = Float(ntext) ?? 0
+            if let ptext = labelPreNumber.text {
+                let pn = Float(ptext) ?? 0
+                
+                var tn: Float = 0
+                if strOperator == "+" {
+                    tn = pn + cn
+                } else if strOperator == "-" {
+                    tn = pn - cn
+                } else if strOperator == "*" {
+                    tn = pn * cn
+                } else if strOperator == "/" {
+                    tn = pn / cn
+                }
+                
+                labelCurrentNumber.text = String(format:"%g", tn)
+                labelPreNumber.text = ""
+                strOperator = ""
+            }
+        }
+        
     }
     
     @IBAction func equalsClick(_ sender: UIButton) {
         if labelCurrentNumber.text == "" {
             return
         }
-        if strOperator == "+" {
-            if let ntext = labelCurrentNumber.text {
-                let cn = Int(ntext)
-                if let ptext = labelPreNumber.text {
-                    let pn = Int(ptext)
-                    let tn = (pn ?? 0) + (cn ?? 0)
-                    labelCurrentNumber.text = String(tn)
-                    labelPreNumber.text = ""
-                    strOperator = ""
-                }
-            }
-        }
-        
-        if strOperator == "-" {
-            if let ntext = labelCurrentNumber.text {
-                let cn = Int(ntext)
-                if let ptext = labelPreNumber.text {
-                    let pn = Int(ptext)
-                    let tn = (pn ?? 0) - (cn ?? 0)
-                    labelCurrentNumber.text = String(tn)
-                    labelPreNumber.text = ""
-                    strOperator = ""
-                }
-            }
-        }
-        
-        if strOperator == "*" {
-            if let ntext = labelCurrentNumber.text {
-                let cn = Int(ntext)
-                if let ptext = labelPreNumber.text {
-                    let pn = Int(ptext)
-                    let tn = (pn ?? 0) * (cn ?? 0)
-                    labelCurrentNumber.text = String(tn)
-                    labelPreNumber.text = ""
-                    strOperator = ""
-                }
-            }
-        }
-        if strOperator == "/" {
-            if let ntext = labelCurrentNumber.text {
-                let cn = Int(ntext)
-                if let ptext = labelPreNumber.text {
-                    let pn = Int(ptext)
-                    let tn = (pn ?? 0) / (cn ?? 0)
-                    labelCurrentNumber.text = String(tn)
-                    labelPreNumber.text = ""
-                    strOperator = ""
-                }
-            }
-        }
+        CaculatorOperate()
     }
     
     @IBAction func digitClick(_ sender: UIButton) {
