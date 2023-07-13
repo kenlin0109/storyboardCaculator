@@ -245,8 +245,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="labelNumber" destination="ZKs-95-lyG" id="YY9-eV-j0P"/>
-                        <outlet property="preNumber" destination="6qb-oF-hib" id="2Yi-rf-7JW"/>
+                        <outlet property="labelCurrentNumber" destination="ZKs-95-lyG" id="YY9-eV-j0P"/>
+                        <outlet property="labelPreNumber" destination="6qb-oF-hib" id="2Yi-rf-7JW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
