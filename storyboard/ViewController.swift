@@ -50,22 +50,29 @@ class ViewController: UIViewController {
         strOperator = sender.titleLabel?.text ?? ""
     }
     
+    func Operate(_ strOperate: String, _ pn: Float, _ cn: Float) -> Float {
+        var tn: Float = 0
+        
+        if strOperate == "+" {
+            tn = pn + cn
+        } else if strOperate == "-" {
+            tn = pn - cn
+        } else if (strOperate == "*") || (strOperate == "X") {
+            tn = pn * cn
+        } else if strOperate == "/" {
+            tn = pn / cn
+        }
+        
+        return tn
+    }
+    
     fileprivate func CaculatorOperate() {
         if let ntext = labelCurrentNumber.text {
             let cn = Float(ntext) ?? 0
             if let ptext = labelPreNumber.text {
                 let pn = Float(ptext) ?? 0
                 
-                var tn: Float = 0
-                if strOperator == "+" {
-                    tn = pn + cn
-                } else if strOperator == "-" {
-                    tn = pn - cn
-                } else if (strOperator == "*") || (strOperator == "X") {
-                    tn = pn * cn
-                } else if strOperator == "/" {
-                    tn = pn / cn
-                }
+                var tn = Operate(strOperator, pn, cn)
                 
                 labelCurrentNumber.text = String(format:"%g", tn)
                 labelPreNumber.text = ""
