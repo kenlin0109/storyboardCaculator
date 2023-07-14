@@ -46,19 +46,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func ArthmeticClick(_ sender: UIButton) {
-        let Arthmetic = sender.titleLabel?.text ?? ""
         afterOperatorClick()
-        strOperator = Arthmetic
-        if strOperator == "+" {
-            strOperator = "+"
-        } else if strOperator == "-" {
-            strOperator = "-"
-        } else if strOperator == "X" {
-            strOperator = "*"
-        } else if strOperator == "/" {
-            strOperator = "/"
-        }
-        
+        strOperator = sender.titleLabel?.text ?? ""
     }
     
     fileprivate func CaculatorOperate() {
@@ -72,7 +61,7 @@ class ViewController: UIViewController {
                     tn = pn + cn
                 } else if strOperator == "-" {
                     tn = pn - cn
-                } else if strOperator == "*" {
+                } else if (strOperator == "*") || (strOperator == "X") {
                     tn = pn * cn
                 } else if strOperator == "/" {
                     tn = pn / cn
