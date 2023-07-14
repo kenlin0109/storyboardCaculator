@@ -49,7 +49,6 @@ class ViewController: UIViewController {
         let Arthmetic = sender.titleLabel?.text ?? ""
         afterOperatorClick()
         strOperator = Arthmetic
-        afterOperatorClick()
         if strOperator == "+" {
             strOperator = "+"
         } else if strOperator == "-" {
@@ -62,29 +61,6 @@ class ViewController: UIViewController {
         
     }
     
-    
-    /*
-    
-    @IBAction func plusClick(_ sender: UIButton) {
-        afterOperatorClick()
-        strOperator = "+"
-    }
-    
-    @IBAction func minusClick(_ sender: UIButton) {
-        afterOperatorClick()
-        strOperator = "-"
-    }
-    
-    @IBAction func multipleClick(_ sender: UIButton) {
-        afterOperatorClick()
-        strOperator = "*"
-    }
-    
-    @IBAction func divisionClick(_ sender: UIButton) {
-        afterOperatorClick()
-        strOperator = "/"
-    }
-    */
     fileprivate func CaculatorOperate() {
         if let ntext = labelCurrentNumber.text {
             let cn = Float(ntext) ?? 0
