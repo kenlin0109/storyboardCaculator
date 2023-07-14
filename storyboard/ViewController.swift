@@ -8,11 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var labelCurrentNumber: UILabel!
+    
     var strOperator = ""
+    var strPreNumber = ""
     
     func afterOperatorClick() {
         if strOperator == "" {
-            labelPreNumber.text = labelCurrentNumber.text ?? ""
+            strPreNumber = labelCurrentNumber.text ?? ""
             labelCurrentNumber.text = ""
         }
     }
@@ -41,7 +44,7 @@ class ViewController: UIViewController {
     @IBAction func ACClick(_ sender: UIButton) {
         labelCurrentNumber.text = ""
         strOperator = ""
-        labelPreNumber.text = ""
+        strPreNumber = ""
     }
     
     
@@ -67,19 +70,17 @@ class ViewController: UIViewController {
     }
     
     fileprivate func CaculatorOperate() {
-        if let ntext = labelCurrentNumber.text {
-            let cn = Float(ntext) ?? 0
-            if let ptext = labelPreNumber.text {
-                let pn = Float(ptext) ?? 0
+        let ntext = labelCurrentNumber?.text ?? ""
+        let cn = Float(ntext) ?? 0
+        let ptext = strPreNumber
+        let pn = Float(ptext) ?? 0
                 
-                var tn = Operate(strOperator, pn, cn)
+        let tn = Operate(strOperator, pn, cn)
                 
-                labelCurrentNumber.text = String(format:"%g", tn)
-                labelPreNumber.text = ""
-                strOperator = ""
-            }
-        }
-        
+        labelCurrentNumber.text = String(format:"%g", tn)
+        strPreNumber = ""
+        strOperator = ""
+         
     }
     
     @IBAction func equalsClick(_ sender: UIButton) {
@@ -90,8 +91,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func digitClick(_ sender: UIButton) {
-        let title = sender.titleLabel?.text ?? ""
-        labelCurrentNumber.text = (labelCurrentNumber?.text ?? "") + title
+        let currentNumber = labelCurrentNumber?.text ?? ""
+        let digit = sender.titleLabel?.text ?? ""
+        
+        if currentNumber == "0" {
+            labelCurrentNumber.text = digit
+        } else {
+            labelCurrentNumber.text = currentNumber + digit
+        }
+        
     }
     
     @IBAction func dotClick(_ sender: UIButton) {
@@ -101,13 +109,11 @@ class ViewController: UIViewController {
             
     }
     
-    @IBOutlet weak var labelPreNumber: UILabel!
-    @IBOutlet weak var labelCurrentNumber: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         labelCurrentNumber.text = ""
-        labelPreNumber.text = ""
+        strPreNumber = ""
         // Do any additional setup after loading the view.
     }
 
