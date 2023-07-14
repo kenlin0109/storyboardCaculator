@@ -153,7 +153,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="divisionClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fx1-8e-Ao6"/>
+                                    <action selector="ArthmeticClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCe-xq-f7X"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdW-Qs-7T9">
@@ -164,7 +164,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="minusClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUY-zh-UYa"/>
+                                    <action selector="ArthmeticClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PiX-Qk-d9N"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N21-tl-Bpz">
@@ -175,7 +175,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="plusClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X9O-GW-FiC"/>
+                                    <action selector="ArthmeticClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I5T-eb-dd6"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUl-ZV-Vfo">
@@ -237,7 +237,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="multipleClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1z-j3-vvq"/>
+                                    <action selector="ArthmeticClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nLh-Ue-RPk"/>
                                 </connections>
                             </button>
                         </subviews>

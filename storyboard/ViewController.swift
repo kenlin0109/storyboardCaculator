@@ -44,14 +44,30 @@ class ViewController: UIViewController {
         labelPreNumber.text = ""
     }
     
-    @IBAction func divisionClick(_ sender: UIButton) {
+    
+    @IBAction func ArthmeticClick(_ sender: UIButton) {
+        let Arthmetic = sender.titleLabel?.text ?? ""
         afterOperatorClick()
-        strOperator = "/"
+        strOperator = Arthmetic
+        afterOperatorClick()
+        if strOperator == "+" {
+            strOperator = "+"
+        } else if strOperator == "-" {
+            strOperator = "-"
+        } else if strOperator == "X" {
+            strOperator = "*"
+        } else if strOperator == "/" {
+            strOperator = "/"
+        }
+        
     }
     
-    @IBAction func multipleClick(_ sender: UIButton) {
+    
+    /*
+    
+    @IBAction func plusClick(_ sender: UIButton) {
         afterOperatorClick()
-        strOperator = "*"
+        strOperator = "+"
     }
     
     @IBAction func minusClick(_ sender: UIButton) {
@@ -59,11 +75,16 @@ class ViewController: UIViewController {
         strOperator = "-"
     }
     
-    @IBAction func plusClick(_ sender: UIButton) {
+    @IBAction func multipleClick(_ sender: UIButton) {
         afterOperatorClick()
-        strOperator = "+"
+        strOperator = "*"
     }
     
+    @IBAction func divisionClick(_ sender: UIButton) {
+        afterOperatorClick()
+        strOperator = "/"
+    }
+    */
     fileprivate func CaculatorOperate() {
         if let ntext = labelCurrentNumber.text {
             let cn = Float(ntext) ?? 0
